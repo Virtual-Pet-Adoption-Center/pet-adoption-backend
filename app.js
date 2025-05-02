@@ -3,9 +3,15 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const petRoutes = require("./routes/petRoutes");
 const app = express();
+const cors = require('cors');
+
 
 // Middleware
 app.use(bodyParser.json());
+
+// Enable CORS for all routes
+app.use(cors());
+
 
 // MongoDB connection
 const uri =
