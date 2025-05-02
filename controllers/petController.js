@@ -24,6 +24,9 @@ const addPet = async (req, res) => {
 const getAllPets = async (req, res) => {
   try {
     const pets = await Pet.find();
+    if (!pets) {
+      return res.status(404).json({ message: "No pets found" });
+    }
     res.json(pets);
   } catch (error) {
     res.status(500).json({ message: "Error fetching pets", error });

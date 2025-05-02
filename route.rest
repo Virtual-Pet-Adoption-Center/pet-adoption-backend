@@ -1,1 +1,14 @@
-GET http://localhost:5000/pets
+GET http://localhost:5000/api/pets
+
+###
+
+POST http://localhost:5000/api/pets HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Rayan",
+  "species": "Dog",
+  "age": 4,
+  "personality": "Friendly",
+  "mood": "Happy"
+}
