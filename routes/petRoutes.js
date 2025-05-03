@@ -10,12 +10,12 @@ const {
   filterPetsByMood,
 } = require("../controllers/petController");
 
-router.post("/pets", addPet); //done
-router.get("/pets", getAllPets); //done
-router.get("/pets/:id", getPetById);
-router.put("/pets/:id", updatePetProfile);
-router.patch("/pets/:id/adopt", adoptPet);
-router.delete("/pets/:id", deletePet);
-router.get("/pets/filter", filterPetsByMood);
+router.post("/addPets", addPet);
+router.get("/getPets", getAllPets);
+router.get("/getPets/:id", getPetById);
+router.put("/updatePets/:id", updatePetProfile);
+router.patch("/adoptPets/:id/adopt", adoptPet);
+router.delete("/deletePets/:id", deletePet);
+router.get("/filterPets", filterPetsByMood);
 
 module.exports = router;
