@@ -12,6 +12,7 @@ Follow these instructions to set up and run the backend server locally.
 
 - Node.js (v14 or higher)
 - npm
+- MongoDB
 
 ---
 
@@ -40,14 +41,16 @@ The backend server will run on http://localhost:5000.
 1. Node.js – JavaScript runtime
 2. Express.js – Web framework
 3. CORS – Cross-Origin Resource Sharing
+4. MongoDB – NoSQL database for storing pet and user data
 
 ### Installed Packages
 
 1. express – Server framework
 2. cors – Enable CORS
-3. nodemon – Development utility (for auto-restart)
+3. mongoose – MongoDB object modeling
+4. nodemon – Development utility (for auto-restart)
 
-    npm install express cors
+    npm install express cors mongoose
     npm install --save-dev nodemon
 
 ## 📌 API Endpoints
@@ -63,6 +66,14 @@ Below is the list of available REST API endpoints provided by the backend:
 | PATCH  | `/adoptPets/:id/adopt`      | Mark a specific pet as adopted       |
 | DELETE | `/deletePets/:id`           | Delete a pet by ID                   |
 | GET    | `/filterPets`               | Filter pets by mood                  |
+
+## 🗄️ Database
+This project uses MongoDB to store data related to pets and user interactions.
+- You can connect to a local MongoDB instance or use MongoDB Atlas (cloud).
+- The connection URI is configured in your project (e.g., using mongoose.connect).
+
+Ensure your MongoDB connection string is stored securely in an .env file:
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname>?retryWrites=true&w=majority
 
 
 ## 📬 Contact
