@@ -112,12 +112,8 @@ const filterPetsByMood = async (req, res) => {
       return { ...pet.toObject(), mood: calculatedMood };
     });
     const filteredPets = petsWithUpdatedMood.filter((pet) => pet.mood === mood);
-    if (filteredPets.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No pets found with the given mood" });
-    }
-    res.json(filteredPets);
+    res.status(200).json(filteredPets);
+    
   } catch (error) {
     res
       .status(500)
