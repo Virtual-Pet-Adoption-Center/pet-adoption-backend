@@ -9,8 +9,10 @@ const {
   deletePet,
   filterPetsByMood,
 } = require("../controllers/petController");
+const upload = require('../utils/upload')
 
-router.post("/addPets", addPet);
+// router.post("/addPets", addPet);
+router.post('/addPets', upload.single('image'), addPet);
 router.get("/getPets", getAllPets);
 router.get("/getPets/:id", getPetById);
 router.put("/updatePets/:id", updatePetProfile);

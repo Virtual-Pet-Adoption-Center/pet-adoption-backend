@@ -6,17 +6,24 @@ const addPet = async (req, res) => {
   const { name, species, age, personality } = req.body;
 
   try {
+    // Check if image was uploaded
+    if (!req.file) {
+      return res.status(400).json({ message: 'Image file is required.' });
+    }
+
     const newPet = new Pet({
       name,
       species,
       age,
       personality,
       mood: getMood(Date.now()),
+      image: req.file.path, // Store the path of the uploaded image
     });
+
     await newPet.save();
     res.status(201).json(newPet);
   } catch (error) {
-    res.status(500).json({ message: "Error creating pet", error });
+    res.status(500).json({ message: 'Error creating pet', error });
   }
 };
 

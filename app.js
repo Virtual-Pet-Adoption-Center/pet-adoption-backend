@@ -5,7 +5,6 @@ const petRoutes = require("./routes/petRoutes");
 const app = express();
 const cors = require('cors');
 
-
 // Middleware
 app.use(bodyParser.json());
 
@@ -23,6 +22,9 @@ mongoose.connect(uri)
     console.error("MongoDB connection error:", error);
     process.exit(1);
   });
+
+  app.use('/uploads', express.static('uploads')); // serve files statically
+
 
 // Routes
 app.use("/api", petRoutes);

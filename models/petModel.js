@@ -9,6 +9,7 @@ const petSchema = new mongoose.Schema(
     mood: { type: String, default: "Happy" },
     adopted: { type: Boolean, default: false },
     adoption_date: { type: Date, default: null },
+    image: { type: String, default: null },
   },
   { timestamps: true }
 );
